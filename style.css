@@ -92,9 +92,33 @@ footer {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-auto-rows: 100px;
+	grid-template-areas: 
+		"foods transports lifestyles";
 	grid-gap: 10px;
 	margin: auto;
 	justify-content: center;
+}
+
+
+#transports{
+	grid-area: transports;
+}
+#lifestyles{
+	grid-area: lifestyles;
+}
+#foods{
+	grid-area: foods;
+}
+
+@media only screen and (max-width: 600px) {
+  #buttons{
+    grid-template-columns: 1fr;
+	grid-template-rows: 1.2fr 1.2fr 1.2fr;
+    grid-template-areas:
+	"foods"
+    "transports"
+    "lifestyles";
+  }
 }
 
 .btn{
@@ -209,8 +233,6 @@ a.btn {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 	}
-
-
 
 .empty-spacer-1 {
 	 grid-column: 3 / span 4;
