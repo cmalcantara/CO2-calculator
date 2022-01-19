@@ -80,7 +80,8 @@ footer {
 			font-size: 20px;
 		}
 #container{
-	margin: 5em;
+	margin: 0 auto;
+	max-width: 1200px;
 }
 #display {
     text-align: center;
@@ -94,20 +95,22 @@ footer {
 	grid-auto-rows: 100px;
 	grid-template-areas: 
 		"foods transports lifestyles";
-	grid-gap: 10px;
+	grid-gap: 5px;
 	margin: auto;
 	justify-content: center;
 }
 
-
 #transports{
 	grid-area: transports;
+	text-align: center;
 }
 #lifestyles{
 	grid-area: lifestyles;
+	text-align: center;
 }
 #foods{
 	grid-area: foods;
+	text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
