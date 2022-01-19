@@ -11,66 +11,110 @@ let buttons = Array.from(document.getElementsByClassName('button'));
 */
 let co2_src = [
     {
-        "title": "High Meat testing this length, abcdefghilmnopqrstuvwxyz",
-        "description": "When you try to eat meat in every meal",
+        "title": "High Meat",
+        "description": "When you eat meat in every meal",
         "category": "food",
         "kg_CO2": 64.8,
         "state": 0
-    },/*
+    },
     {
         "title": "Medium Meat",
-        "food": "medium_meat",
+        "description": "When you eat meat in every meal",
+        "category": "food",
         "kg_CO2": 50.7,
         "state": 0
     },
     {
-        "name": "Pescetarian",
-        "id": "pescetarian",
+        "title": "Pescetarian",
+        "description": "When you eat meat in every meal",
+        "category": "food",
         "kg_CO2": 35.1,
         "state": 0
     },
     {
-        "name": "Vegetarian",
-        "id": "vegetarian",
+        "title": "Vegetarian",
+        "description": "When you eat meat in every meal",
+        "category": "food",
         "kg_CO2": 34.2,
         "state": 0
     },
     {
-        "name": "Vegan",
-        "id": "vegan",
+        "title": "Vegan",
+        "description": "When you eat meat in every meal",
+        "category": "food",
         "kg_CO2": 26.1,
         "state": 0
     },
     {
-        "name": "Car",
-        "id": "car",
+        "title": "Car",
+        "description": "When you eat meat in every meal",
+        "category": "transport",
         "kg_CO2": 150.8,
         "state": 0
     },
     {
-        "name": "Train",
-        "id": "train",
+        "title": "Train",
+        "description": "When you eat meat in every meal",
+        "category": "transport",
         "kg_CO2": 36.6,
         "state": 0
     },
     {
-        "name": "Bus",
-        "id": "bus",
+        "title": "Bus",
+        "description": "When you eat meat in every meal",
+        "category": "transport",
         "kg_CO2": 96.2,
         "state": 0
     },
     {
-        "name": "Motorbike",
-        "id": "motorbike",
+        "title": "Motorbike",
+        "description": "When you eat meat in every meal",
+        "category": "transport",
         "kg_CO2": 134.3,
         "state": 0
     },
     {
-        "name": "Vegan",
-        "id": "vegan",
-        "kg_CO2": 26.1,
+        "title": "Heating",
+        "description": "When you eat meat in every meal",
+        "category": "lifestyle",
+        "kg_CO2": 87.3,
+        "state": 1
+    },
+    {
+        "title": "Water Heating",
+        "description": "When you eat meat in every meal",
+        "category": "transport",
+        "kg_CO2": 12.9,
+        "state": 1
+    },
+    {
+        "title": "Refrigerator",
+        "description": "When you eat meat in every meal",
+        "category": "lifestyle",
+        "kg_CO2": 46.8,
         "state": 0
-    }*/
+    },
+    {
+        "title": "Oven",
+        "description": "When you eat meat in every meal",
+        "category": "lifestyle",
+        "kg_CO2": 12.5,
+        "state": 0
+    },
+    {
+        "title": "LED Lights",
+        "description": "When you eat meat in every meal",
+        "category": "lifestyle",
+        "kg_CO2": 3.7,
+        "state": 0
+    },
+    {
+        "title": "TV",
+        "description": "When you eat meat in every meal",
+        "category": "lifestyle",
+        "kg_CO2": 1.6,
+        "state": 0
+    },
 ];
 
 co2_src.forEach(function(arrayItem) {
@@ -97,7 +141,14 @@ co2_src.forEach(function(arrayItem) {
             } 
         // …
         };
-        var buttons = document.getElementById('buttons');
+
+        if (arrayItem.category == "food"){
+            var buttons = document.getElementById('foods');
+        }else if (arrayItem.category == "transport"){
+            var buttons = document.getElementById('transports');
+        }else {
+            var buttons = document.getElementById('lifestyles');
+        }
         buttons.appendChild(btn);
 
         var innerBtn = document.createElement('div');
