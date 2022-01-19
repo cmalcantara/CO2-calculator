@@ -78,14 +78,14 @@ let co2_src = [
         "description": "When you eat meat in every meal",
         "category": "lifestyle",
         "kg_CO2": 87.3,
-        "state": 1
+        "state": 0
     },
     {
         "title": "Water Heating",
         "description": "When you eat meat in every meal",
         "category": "transport",
         "kg_CO2": 12.9,
-        "state": 1
+        "state": 0
     },
     {
         "title": "Refrigerator",
