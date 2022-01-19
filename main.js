@@ -11,15 +11,15 @@ let buttons = Array.from(document.getElementsByClassName('button'));
 */
 let co2_src = [
     {
-        "title": "High Meat",
-        "description": "When you try to eat meat after every meal / red meat",
+        "title": "High Meat testing this length, abcdefghilmnopqrstuvwxyz",
+        "description": "When you try to eat meat in every meal",
         "category": "food",
         "kg_CO2": 64.8,
         "state": 0
     },/*
     {
-        "name": "Medium Meat",
-        "id": "medium_meat",
+        "title": "Medium Meat",
+        "food": "medium_meat",
         "kg_CO2": 50.7,
         "state": 0
     },
@@ -75,19 +75,21 @@ let co2_src = [
 
 co2_src.forEach(function(arrayItem) {
     document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.createElement('div');
+        /*
         var btn = document.createElement('input');
         btn.type = 'button';
-        btn.href = '#'
         btn.value = arrayItem.title;
+        var button = document.getElementById(arrayItem.id);
+        btn.id = arrayItem.id;
+        */
+        btn.classList.add('btn', arrayItem.category);
         btn.dataset.description = arrayItem.description;
-        btn.classList.add(arrayItem.category);
-        //var innerButton = document.createElement('div');
-        //button.appendChild(innerButton);
     
         btn.onclick = function() {
             let display = document.getElementById('display');
             updateVal(arrayItem.kg_CO2, arrayItem.state);
-            btn.classList.toggle("test");
+            btn.classList.toggle("toggled");
             if (arrayItem.state == 0){
                 arrayItem.state = 1;
             }else {
@@ -95,9 +97,17 @@ co2_src.forEach(function(arrayItem) {
             } 
         // …
         };
-    
-        var buttons= document.getElementById('buttons');
+        var buttons = document.getElementById('buttons');
         buttons.appendChild(btn);
+
+        var innerBtn = document.createElement('div');
+        innerBtn.classList.add('inner');
+        btn.appendChild(innerBtn);
+        var title = document.createElement('div');
+        title.innerHTML= arrayItem.title;
+        title.classList.add('title');
+        innerBtn.appendChild(title);
+    
     }, false);
 });
 
