@@ -12,105 +12,105 @@ var buttons = Array.from(document.getElementsByClassName('button'));
 var co2_src = [
     {
         "title": "High Meat",
-        "description": "When you eat meat in every meal",
+        "description": "Eating meat in every meal",
         "category": "food",
         "kg_CO2": 64.8,
         "state": 0
     },
     {
         "title": "Medium Meat",
-        "description": "When you eat meat in every meal",
+        "description": "Eating meat a few times a week or reduced red meat consumption",
         "category": "food",
         "kg_CO2": 50.7,
         "state": 0
     },
     {
         "title": "Pescetarian",
-        "description": "When you eat meat in every meal",
+        "description": "No meat consumption except for fish",
         "category": "food",
         "kg_CO2": 35.1,
         "state": 0
     },
     {
         "title": "Vegetarian",
-        "description": "When you eat meat in every meal",
+        "description": "No meat consumption",
         "category": "food",
         "kg_CO2": 34.2,
         "state": 0
     },
     {
         "title": "Vegan",
-        "description": "When you eat meat in every meal",
+        "description": "Vegetarian without consuming animal products",
         "category": "food",
         "kg_CO2": 26.1,
         "state": 0
     },
     {
         "title": "Car",
-        "description": "When you eat meat in every meal",
+        "description": "Based on the average distance traveled by a German car owner",
         "category": "transport",
         "kg_CO2": 150.8,
         "state": 0
     },
     {
         "title": "Train",
-        "description": "When you eat meat in every meal",
+        "description": "Based on the average distanced traveled by a German commuter",
         "category": "transport",
         "kg_CO2": 36.6,
         "state": 0
     },
     {
         "title": "Bus",
-        "description": "When you eat meat in every meal",
+        "description": "Based on the average distanced traveled by a German commuter",
         "category": "transport",
         "kg_CO2": 96.2,
         "state": 0
     },
     {
         "title": "Motorbike",
-        "description": "When you eat meat in every meal",
+        "description": "Based on the average distance traveled by a German motorbike owner",
         "category": "transport",
         "kg_CO2": 134.3,
         "state": 0
     },
     {
         "title": "Heating",
-        "description": "When you eat meat in every meal",
+        "description": "Based on average heating of a German household spending",
         "category": "lifestyle",
         "kg_CO2": 87.3,
         "state": 0
     },
     {
         "title": "Water Heating",
-        "description": "When you eat meat in every meal",
+        "description": "Based on average water heating of German household spending",
         "category": "lifestyle",
         "kg_CO2": 12.9,
         "state": 0
     },
     {
         "title": "Refrigerator",
-        "description": "When you eat meat in every meal",
+        "description": "Based on 24 hour daily usage",
         "category": "lifestyle",
         "kg_CO2": 46.8,
         "state": 0
     },
     {
         "title": "Oven",
-        "description": "When you eat meat in every meal",
+        "description": "Based on 30 minute daily usage",
         "category": "lifestyle",
         "kg_CO2": 12.5,
         "state": 0
     },
     {
         "title": "LED Lights",
-        "description": "When you eat meat in every meal",
+        "description": "Based on mulitple bulbs and 6 hours of daily usage",
         "category": "lifestyle",
         "kg_CO2": 3.7,
         "state": 0
     },
     {
         "title": "TV",
-        "description": "When you eat meat in every meal",
+        "description": "Based on 1.5 hours of daily usage",
         "category": "lifestyle",
         "kg_CO2": 1.6,
         "state": 0
@@ -119,6 +119,14 @@ var co2_src = [
 
 var foodState = 0;
 var transportState = 0;
+
+function checkCondition(inputClass){
+    var tog = document.querySelectorAll('toggled').classList.contains(inputClass);
+    alert(tog);
+    //if (li.contains(inputClass)){
+    //    alert(tog);
+    //}
+}
 
 //adding a constraint to have only 1 food option             
 co2_src.forEach(function(arrayItem) {
@@ -136,11 +144,15 @@ co2_src.forEach(function(arrayItem) {
             }else {
                 arrayItem.state = 0;
             }
+            checkCondition('food');
              
              
             //adding a constraint to have only 1 food option             
             //when a food is pressed & state = 0, it turns state to 1
-            //when a food is pressed & state = 1, it searches for toggled
+            //when a food is pressed & state = 1, it searches for toggled, 
+                //subsubtracts, add clicked, state = 1
+                //when food is unclicked state = 0;
+            
 
             //function test(elem){
             //    var elemTest = elem;
