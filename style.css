@@ -117,7 +117,9 @@ footer {
 @media only screen and (max-width: 600px) {
   #buttons{
     grid-template-columns: 1fr;
+	/*
 	grid-template-rows: 1.2fr 1.2fr 1.2fr;
+	*/
     grid-template-areas:
 	"foods"
     "transports"
