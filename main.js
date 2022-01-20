@@ -1,7 +1,7 @@
 
-let display = document.getElementById('display');
+var display = document.getElementById('display');
 display.innerHTML = 0.0;
-let buttons = Array.from(document.getElementsByClassName('button'));
+var buttons = Array.from(document.getElementsByClassName('button'));
 /*
         "title": "High Meat",
         "description": "When you try to eat meat after every meal / red meat",
@@ -9,7 +9,7 @@ let buttons = Array.from(document.getElementsByClassName('button'));
         "kg_CO2": 64.8,
         "state": 0
 */
-let co2_src = [
+var co2_src = [
     {
         "title": "High Meat",
         "description": "When you eat meat in every meal",
@@ -117,31 +117,49 @@ let co2_src = [
     },
 ];
 
+var foodState = 0;
+var transportState = 0;
+
+//adding a constraint to have only 1 food option             
 co2_src.forEach(function(arrayItem) {
     document.addEventListener('DOMContentLoaded', function() {
         var btn = document.createElement('div');
-        /*
-        var btn = document.createElement('input');
-        btn.type = 'button';
-        btn.value = arrayItem.title;
-        var button = document.getElementById(arrayItem.id);
-        btn.id = arrayItem.id;
-        */
         btn.classList.add('btn', arrayItem.category);
         btn.dataset.description = arrayItem.description;
-    
-        btn.onclick = function() {
-            let display = document.getElementById('display');
+        btn.onclick = "test(this)";
+        /*
+        btn.onclick = "test(this)";
+        */
+        btn.onclick = function(event) {
+            var display = document.getElementById('display');
             updateVal(arrayItem.kg_CO2, arrayItem.state);
             btn.classList.toggle("toggled");
             if (arrayItem.state == 0){
                 arrayItem.state = 1;
             }else {
                 arrayItem.state = 0;
-            } 
+            }
+            var elem = event.target;
+            if (elem.classList.contains("food")){
+                alert("this runs");
+                //tog = document.getElementsByClassName("toggled");
+                //tog.classList.toggle("toggled");
+            }
+
+            //adding a constraint to have only 1 food option             
+            //function test(elem){
+            //    var elemTest = elem;
+            //}
+
+            //elem = event.target;
+            //if (elem.classList.contains("food")){
+            //   alert("this runs");
+            //   tog = document.getElementsByClassName("toggled");
+            //   tog.classList.toggle("toggled");
+            //}
         // …
         };
-
+        //appending element based on category
         if (arrayItem.category == "food"){
             var buttons = document.getElementById('foods');
         }else if (arrayItem.category == "transport"){
@@ -151,8 +169,10 @@ co2_src.forEach(function(arrayItem) {
         }
         buttons.appendChild(btn);
 
+        //appending inner & child title element
         var innerBtn = document.createElement('div');
         innerBtn.classList.add('inner');
+        innerBtn.onclick = "whoami()";
         btn.appendChild(innerBtn);
         var title = document.createElement('div');
         title.innerHTML= arrayItem.title;

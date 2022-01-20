@@ -162,10 +162,16 @@ footer {
 
 		position: absolute;
 		opacity: 0;
+		/*Popup below*/
 		top: 100%;
 		width: 150px;
 		left: 28%;
 		margin-left: -75px;
+		/*Popup Left*/
+		/*
+		top: -5px;
+		right: 105%;
+		*/
 
 		font-size: 12px;
 		line-height: 1.4;
@@ -173,10 +179,10 @@ footer {
 		padding: 10px;
 		margin: 0 0 0 -50px;
 		border-radius: 6px;
-
+		/*
 		transition: opacity 0.3s ease 0.3s,
 			top 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
-
+		*/
 		background: #f9f8f7;
 		color: var(--text-color);
 		/*
@@ -194,6 +200,7 @@ footer {
 		.btn:hover .title{
 			-webkit-text-fill-color: var(--text-color);
 		}
+		/*Retains the tooltip if hovered*/
 		.btn:hover:after {
 			top: 105%;
 			opacity: 1;
