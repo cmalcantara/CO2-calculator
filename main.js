@@ -1,6 +1,6 @@
 
 var display = document.getElementById('display');
-display.innerHTML = 0.0;
+display.innerHTML = 0.00;
 var buttons = Array.from(document.getElementsByClassName('button'));
 /*
         "title": "High Meat",
@@ -137,10 +137,10 @@ co2_src.forEach(function(arrayItem) {
                 arrayItem.state = 0;
             }
              
+             
             //adding a constraint to have only 1 food option             
-            if (foodState == 1){
-
-            }
+            //when a food is pressed & state = 0, it turns state to 1
+            //when a food is pressed & state = 1, it searches for toggled
 
             //function test(elem){
             //    var elemTest = elem;

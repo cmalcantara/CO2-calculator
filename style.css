@@ -122,6 +122,8 @@ footer {
 	"foods"
     "transports"
     "lifestyles";
+	margin: auto;
+	justify-content: center;
   }
 }
 
