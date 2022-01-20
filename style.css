@@ -24,6 +24,7 @@ h1 {
 	text-align: center;
 	
 	background: -webkit-linear-gradient(#EFD28F, #FEB1CD);
+	background-clip: border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -194,12 +195,14 @@ footer {
 		transform: scale(1.12);
 		z-index: 10;
 	}
+		/*When you want it to be highlighted before pressed
 		.btn:hover .inner{
 			background: transparent;
 		}
 		.btn:hover .title{
 			-webkit-text-fill-color: var(--text-color);
 		}
+		*/
 		/*Retains the tooltip if hovered*/
 		.btn:hover:after {
 			top: 105%;
@@ -212,6 +215,7 @@ a.btn {
 
 .toggled .inner{
 	background: transparent;
+	-webkit-text-fill-color: var(--text-color);
 }
 .toggled .inner .title{
 	-webkit-text-fill-color: var(--text-color);
@@ -222,6 +226,7 @@ a.btn {
 }
 	.food .title {
         background: -webkit-linear-gradient(var(--r1), var(--r2));
+		background-clip: border-box;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 	}
@@ -231,6 +236,7 @@ a.btn {
 }
 	.transport .title {
         background: -webkit-linear-gradient(var(--g1), var(--g2));
+		background-clip: border-box;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 	}
@@ -240,6 +246,7 @@ a.btn {
 }
 	.lifestyle .title {
         background: -webkit-linear-gradient(var(--b1), var(--b2));
+		background-clip: border-box;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 	}

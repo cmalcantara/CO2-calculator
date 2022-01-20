@@ -126,10 +126,7 @@ co2_src.forEach(function(arrayItem) {
         var btn = document.createElement('div');
         btn.classList.add('btn', arrayItem.category);
         btn.dataset.description = arrayItem.description;
-        btn.onclick = "test(this)";
-        /*
-        btn.onclick = "test(this)";
-        */
+
         btn.onclick = function(event) {
             var display = document.getElementById('display');
             updateVal(arrayItem.kg_CO2, arrayItem.state);
@@ -139,14 +136,12 @@ co2_src.forEach(function(arrayItem) {
             }else {
                 arrayItem.state = 0;
             }
-            var elem = event.target;
-            if (elem.classList.contains("food")){
-                alert("this runs");
-                //tog = document.getElementsByClassName("toggled");
-                //tog.classList.toggle("toggled");
+             
+            //adding a constraint to have only 1 food option             
+            if (foodState == 1){
+
             }
 
-            //adding a constraint to have only 1 food option             
             //function test(elem){
             //    var elemTest = elem;
             //}
@@ -160,19 +155,19 @@ co2_src.forEach(function(arrayItem) {
         // …
         };
         //appending element based on category
+        var buttons;
         if (arrayItem.category == "food"){
-            var buttons = document.getElementById('foods');
+            buttons = document.getElementById('foods');
         }else if (arrayItem.category == "transport"){
-            var buttons = document.getElementById('transports');
+            buttons = document.getElementById('transports');
         }else {
-            var buttons = document.getElementById('lifestyles');
+            buttons = document.getElementById('lifestyles');
         }
         buttons.appendChild(btn);
 
         //appending inner & child title element
         var innerBtn = document.createElement('div');
         innerBtn.classList.add('inner');
-        innerBtn.onclick = "whoami()";
         btn.appendChild(innerBtn);
         var title = document.createElement('div');
         title.innerHTML= arrayItem.title;
