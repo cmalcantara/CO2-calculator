@@ -120,7 +120,6 @@ var co2_src = [
 var foodState = 0;
 var transportState = 0;
 
-
 co2_src.forEach(function(arrayItem) {
     document.addEventListener('DOMContentLoaded', function() {
         var btn = document.createElement('div');
