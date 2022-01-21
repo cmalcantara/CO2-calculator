@@ -120,18 +120,24 @@ var co2_src = [
 var foodState = 0;
 var transportState = 0;
 
+
 co2_src.forEach(function(arrayItem) {
     document.addEventListener('DOMContentLoaded', function() {
         var btn = document.createElement('div');
         btn.classList.add('btn', arrayItem.category);
         btn.dataset.description = arrayItem.description;
-        btn.dataset.kg_CO2 = arrayItem.kg_CO2;
 
-        btn.onclick = function() {
+        btn.onclick = function(event) {
             var display = document.getElementById('display');
-            limitCategory(arrayItem.category);
+            updateVal(arrayItem.kg_CO2, arrayItem.state, arrayItem.category);
             btn.classList.toggle("toggled");
-            updateDisplay();
+            if (arrayItem.state == 0){
+                arrayItem.state = 1;
+            }else {
+                arrayItem.state = 0;
+            }
+            //checkCondition('food');
+             
              
         };
         //appending element based on category
@@ -157,31 +163,77 @@ co2_src.forEach(function(arrayItem) {
     }, false);
 });
 
-//limits a category to only once choice
-function limitCategory(category){
-    if (category == 'food'){
-        var foods = document.getElementsByClassName('food toggled');
-        Array.prototype.forEach.call(foods, function(foo) {
-            foo.classList.toggle('toggled');
+    //adding a constraint to have only 1 food option             
+    //when a food is pressed & state = 0, it turns state to 1
+    //when a food is pressed & state = 1, it searches for toggled, 
+        //subsubtracts, add clicked, state = 1
+        //when food is unclicked state = 0;
+function checkCondition(inputClass){
+    var tog = document.getElementsByClassName('toggled');
+    if (foodState == 0 ){
+        Array.prototype.forEach.call(tog, function(elem) {
+            if (elem.classList.contains(inputClass)){
+                foodState = elem; 
+                return;
+            } 
         });
-    } else if (category == 'transport'){
-        var foods = document.getElementsByClassName('transport toggled');
-        Array.prototype.forEach.call(foods, function(foo) {
-            foo.classList.toggle('toggled');
+    }else {
+        //Subtract value
+        foodState.setAttribute('state', 1);
+        updateVal(foodState.kg_CO2, foodState.state);
+        //Remove toggl highlight
+        foodState.classList.toggle("toggled");
+        //Change foodState
+        Array.prototype.forEach.call(tog, function(elem) {
+            if (elem.classList.contains(inputClass)){
+                updateVal(elem.kg_CO2, elem.state);
+                foodState = elem; 
+                return;
+            } 
         });
+        foodState.classList.toggle("toggled");
+
+
     }
+    //if (li.contains(inputClass)){
+    //    alert(tog);
+    //}
 }
+//add parameter: category, categoryHolder
+//if categoryHolder = 0, act normally, add kg_CO2 to categoryHolder
+//if categoryHolder != 0, subtract Category holder
+//  reset all toggled in the category
 
-//sums the value of toggled
-function updateDisplay(){
+function updateVal(kg_CO2, state, category) {
     var val = display.innerHTML;
-    val = 0;
-    var toggl = document.getElementsByClassName('toggled');
-    
-    Array.prototype.forEach.call(toggl, function(tog) {
-        val = parseFloat(val) + parseFloat(tog.dataset.kg_CO2);
-        val = val.toFixed(2);
+    //adding a constraint to have only 1 food option             
+    if (category == 'food'){
+        if (foodState == 0){
+            //initial foodState
+            foodState = kg_CO2;
+        }
+        else if (foodState != 0 && foodState != kg_CO2){
+            val = parseFloat(val) - foodState;
+            val = val.toFixed(2);
+            display.innerHTML = val;
 
-    });
+            var foods = document.getElementsByClassName('food toggled');
+            Array.prototype.forEach.call(foods, function(foo) {
+                foo.classList.toggle('toggled');
+            });
+            foodState = kg_CO2;
+        }
+        else if (foodState == kg_CO2){
+            foodState = 0;
+        }
+    }
+    if (state == 0){
+        val = parseFloat(val) + kg_CO2;
+        val = val.toFixed(2);
+    }
+    else{
+        val = parseFloat(val) - kg_CO2;
+        val = val.toFixed(2);
+    }
     display.innerHTML = val;
 }
