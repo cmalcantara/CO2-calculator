@@ -3,79 +3,103 @@ var co2_src = [
         "title": "High Meat",
         "description": "Eating meat in every meal",
         "category": "food",
-        "kg_CO2": 64.8
+        "kg_CO2": 194.4
     },
     {
         "title": "Medium Meat",
         "description": "Eating meat a few times a week or reduced red meat consumption",
         "category": "food",
-        "kg_CO2": 50.7
+        "kg_CO2": 152.2
     },
     {
         "title": "Pescetarian",
         "description": "No meat consumption except for fish",
         "category": "food",
-        "kg_CO2": 35.1
+        "kg_CO2": 105.3
     },
     {
         "title": "Vegetarian",
         "description": "No meat consumption",
         "category": "food",
-        "kg_CO2": 34.2
+        "kg_CO2": 102.6
     },
     {
         "title": "Vegan",
         "description": "Vegetarian without consuming animal products",
         "category": "food",
-        "kg_CO2": 26.1
+        "kg_CO2": 78.3
     },
     {
-        "title": "Car",
+        "title": "Fossil Fuel Car",
         "description": "Based on the average distance traveled by a German car owner",
         "category": "transport",
         "kg_CO2": 150.8
     },
     {
+        "title": "Electric Car",
+        "description": "Based on the average distance traveled by a German car owner",
+        "category": "transport",
+        "kg_CO2": 49.5
+    },
+    {
+        "title": "Hybrid Car",
+        "description": "Based on the average distance traveled by a German car owner",
+        "category": "transport",
+        "kg_CO2": 109.9
+    },
+    {
+        "title": "Car Sharing",
+        "description": "Based on the average distance traveled by a German car owner",
+        "category": "transport",
+        "kg_CO2": 89.7
+    },
+    {
         "title": "Train",
         "description": "Based on the average distanced traveled by a German commuter",
         "category": "transport",
-        "kg_CO2": 36.6
+        "kg_CO2": 19.2
     },
     {
         "title": "Bus",
         "description": "Based on the average distanced traveled by a German commuter",
         "category": "transport",
-        "kg_CO2": 96.2
+        "kg_CO2": 47.2
     },
     {
         "title": "Motorbike",
         "description": "Based on the average distance traveled by a German motorbike owner",
         "category": "transport",
-        "kg_CO2": 134.3
+        "kg_CO2": 65.9
     },
     {
         "title": "Heating",
         "description": "Based on average heating of a German household",
         "category": "lifestyle",
-        "kg_CO2": 87.3
+        "kg_CO2": 91.8
     },
     {
         "title": "Water Heating",
         "description": "Based on average water heating of German household",
         "category": "lifestyle",
-        "kg_CO2": 12.9
+        "kg_CO2": 13.6
     },
     {
         "title": "Refrigerator",
         "description": "Based on 24 hour daily usage",
         "category": "lifestyle",
-        "kg_CO2": 46.8
+        "kg_CO2": 28.1
     },
     {
         "title": "Oven",
         "description": "Based on 30 minute daily usage",
         "category": "lifestyle",
         "kg_CO2": 12.5
+    },
+    {
+        "title": "Electric Stove Top",
+        "description": "Based on 1 hour daily usage",
+        "category": "lifestyle",
+        "kg_CO2": 23.4
     },
     {
         "title": "LED Lights",
@@ -87,7 +111,13 @@ var co2_src = [
         "title": "TV",
         "description": "Based on 1.5 hours of daily usage",
         "category": "lifestyle",
-        "kg_CO2": 1.6
+        "kg_CO2": 0.9
+    },
+    {
+        "title": "Washing Machine",
+        "description": "Based on 2 hours usage every week",
+        "category": "lifestyle",
+        "kg_CO2": 0.6
     },
 ];
 
